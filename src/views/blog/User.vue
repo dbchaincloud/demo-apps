@@ -35,7 +35,7 @@ import { insertRow, uploadFile, getMyName } from "dbchain-js-client"
 import { i18n } from "../../plugins/vuetify.js"
 
 export default {
-  name: "DemoBlogIndex",
+  name: "BlogUser",
 
   data: () => ({
     appCode: "CTOGVQFVYE",
@@ -57,8 +57,8 @@ export default {
 
   methods: {
     async prepareItems() {
-      this.items.push({ text: i18n.t('dbc.demos.blog.nav.home'), disabled: false, href: "/demos/blog" });
-      this.items.push({ text: i18n.t('dbc.demos.blog.nav.user'), disabled: true, href: "/demos/blog/user" });
+      this.items.push({ text: i18n.t('dbc.demos.blog.nav.home'), disabled: false, href: "/blog" });
+      this.items.push({ text: i18n.t('dbc.demos.blog.nav.user'), disabled: true, href: "/blog/user" });
     },
 
     async createUser() {

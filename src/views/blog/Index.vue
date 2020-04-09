@@ -61,7 +61,7 @@ import { getAllIds, getIdsBy, getRow, insertRow, getAddress } from "dbchain-js-c
 import { i18n } from "../../plugins/vuetify.js"
 
 export default {
-  name: "DemoBlogIndex",
+  name: "BlogIndex",
 
   data: () => ({
     appCode: "CTOGVQFVYE",
@@ -91,7 +91,7 @@ export default {
     async makeSureUserExists() {
       var ids = await getIdsBy(this.appCode, "user", "created_by", getAddress()) || []
       if (ids.length < 1) {
-        this.$router.push({name: "DemoBlogUser" })
+        this.$router.push({name: "BlogUser" })
       }
     },
 
@@ -129,7 +129,7 @@ export default {
     },
 
     showPost(id) {
-      this.$router.push({name: "DemoBlogPost", params: { id: id } });
+      this.$router.push({name: "BlogPost", params: { id: id } });
     },
 
     createPost() {

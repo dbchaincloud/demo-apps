@@ -78,7 +78,7 @@ import { getIdsBy, getRow, insertRow } from "dbchain-js-client"
 import { i18n } from "../../plugins/vuetify.js"
 
 export default {
-  name: "DemoBlogIndex",
+  name: "BlogPost",
 
   data: () => ({
     appCode: "CTOGVQFVYE",
@@ -105,7 +105,7 @@ export default {
     },
 
     async prepareItems() {
-      this.items.push({ text: i18n.t('dbc.demos.blog.nav.home'), disabled: false, href: "/demos/blog" });
+      this.items.push({ text: i18n.t('dbc.demos.blog.nav.home'), disabled: false, href: "/blog" });
       this.items.push({ text: i18n.t('dbc.demos.blog.nav.post'), disabled: true, href: "/" });
     },
 
