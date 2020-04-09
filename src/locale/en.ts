@@ -38,6 +38,15 @@ export default {
   },
 
   dbc: {
+    nav: {
+      title: 'dbChain Cloud Service',
+      footer_left: 'dbChain',
+      home: 'Home',
+      app: 'Application',
+      friends: 'Friends',
+      account: 'Account',
+      exit: 'Exit',
+    },
     validation: {
       field_required: 'Field is required!',
       field_no_empty: 'Field must not be empty!',
@@ -48,6 +57,33 @@ export default {
       save: 'Save',
       login: 'Login',
       send: 'Send',
+    },
+    account: {
+      generate_account: 'Generate account',
+      please_select: 'Please select:',
+      radio_generate: 'Generate mnemonic words',
+      radio_import: 'Import mnemonic words',
+      mnemonic_label: 'Mnemonic words (12 words)',
+      generate_btn: 'Generate',
+      password: 'Password',
+      password_again: 'Password again',
+      login_title: 'Login',
+      name: 'Name',
+      balance: 'Balance',
+      address: 'Address',
+      mnemonic_prompt: 'Please write down the follow 12 words in the exact order and keep them safe. They are required when you recover the keys: '
+    },
+    friends: {
+      scan_qrcode: 'Scan qrcode',
+      send_token: 'Send token',
+      current_friends: 'Friends:',
+      current_pending_friends: 'Pending friends:',
+      amount_to_send: 'Amount',
+      friend_to_send: 'Recipient',
+      pick_recipient: 'Please pick a recipient',
+      pick_amount: 'Please pick an amount',
+      sending_confirm: 'Please confirm you are sending {0} token to {1}.',
+      adding_confirm: 'Please confirm adding address {0} of {1}.',
     },
     demos: {
       demos_list: 'Demo list:',
