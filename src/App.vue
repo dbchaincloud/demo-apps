@@ -86,6 +86,7 @@
 
 <script>
   import { i18n } from "./plugins/vuetify.js"
+  import { setBaseUrl } from "dbchain-js-client"
 
   export default {
     props: {
@@ -102,6 +103,7 @@
     }),
 
     created() {
+      setBaseUrl("https://www.dbchain.cloud/relay");
       this.initLang();
     },
 
