@@ -104,7 +104,7 @@ export default {
       if (user == null) {
         return null
       }
-      return "/ipfs/" + user.avatar
+      return "/relay/ipfs/" + user.avatar
     },
 
     myRouterPush(tableName) {
