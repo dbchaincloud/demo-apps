@@ -103,8 +103,8 @@
     }),
 
     created() {
-      setBaseUrl("https://www.dbchain.cloud/relay");
-      setChainId("mainchain");
+      setBaseUrl("/relay");
+      setChainId("testnet");
       this.initLang();
     },
 

@@ -64,7 +64,7 @@ export default {
   name: "BlogIndex",
 
   data: () => ({
-    appCode: "CTOGVQFVYE",
+    appCode: "2RJJXWWJCY",
     posts : null,
     title: null,
     content: null,

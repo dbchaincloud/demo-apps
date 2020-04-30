@@ -81,7 +81,7 @@ export default {
   name: "BlogPost",
 
   data: () => ({
-    appCode: "CTOGVQFVYE",
+    appCode: "2RJJXWWJCY",
     post: {},
     content: null,
     loading: null,

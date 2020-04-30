@@ -38,7 +38,7 @@ export default {
   name: "BlogUser",
 
   data: () => ({
-    appCode: "CTOGVQFVYE",
+    appCode: "2RJJXWWJCY",
     name: null,
     avatar: null,
     i18n: i18n,
