@@ -2841,10 +2841,10 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
-dbchain-js-client@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.npmjs.org/dbchain-js-client/-/dbchain-js-client-1.2.1.tgz#883cde628e219e751bd4e79b079b2663aadf66e3"
-  integrity sha512-r04DKCqOfN11eNr9p5YuPUjPFpKzKALeXXC3pOqXR9wZm6L+MXr7VnVJddCsT7IRB6ddoVUhmjd3/JcrFGw1tw==
+dbchain-js-client@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.npmjs.org/dbchain-js-client/-/dbchain-js-client-1.2.2.tgz#a5d2d2d7dd31041ffcb1d3dd4cf076a9baa8bc46"
+  integrity sha512-Ue8yED7w5pImtLf0UAnkwBM4d1wivz4CsOugnVm+Xn5m3l50Jz3hiukNdOpH/h/xsCZmGRwphHQWcUU4BT5OCg==
   dependencies:
     "@tendermint/belt" "^0.2.1"
     axios "^0.19.2"
