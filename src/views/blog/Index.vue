@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import { getAllIds, getIdsBy, getRow, insertRow, getAddress } from "dbchain-js-client"
+import { Querier, getIpfsUrl, getIdsBy, insertRow, getAddress } from "dbchain-js-client"
 import { i18n } from "../../plugins/vuetify.js"
 
 export default {
@@ -96,15 +96,12 @@ export default {
     },
 
     async getAvatarUri(addr) {
-      var ids = await getIdsBy(this.appCode, "user", "created_by", addr) || []
-      if (ids.length < 1) {
-        return null
-      }
-      var user = await getRow(this.appCode, "user", ids.pop())
+      var Q = Querier(this.appCode)
+      var user = await Q.user.equal("created_by", addr).select('avatar').first.val()
       if (user == null) {
         return null
       }
-      return "/relay/ipfs/" + user.avatar
+      return getIpfsUrl(user.avatar)
     },
 
     myRouterPush(tableName) {
@@ -117,15 +114,12 @@ export default {
     },
 
     async fetchData() {
-      var tableName = "post"
-      var ids = await getAllIds(this.appCode, tableName)
-      var result = []
-      for(var j=0; j<ids.length; j++) {
-        var record = await getRow(this.appCode, tableName, ids[j])
-        record.avatarUri = await this.getAvatarUri(record.created_by)
-        result.push(record)
+      var Q = Querier(this.appCode);
+      var posts = await Q.post.val();
+      for(var j=0; j<posts.length; j++) {
+        posts[j].avatarUri = await this.getAvatarUri(posts[j].created_by)
       }
-      this.posts = result
+      this.posts = posts
     },
 
     showPost(id) {

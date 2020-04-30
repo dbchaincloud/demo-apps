@@ -75,6 +75,7 @@ export default {
         record["name"] = this.name
         insertRow(this.appCode, "user", record, function() {
           that.$router.go();
+          that.$router.push({ name: "BlogIndex" });
         });
       }
     }

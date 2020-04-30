@@ -74,7 +74,7 @@
 </template>
 
 <script>
-import { getIdsBy, getRow, insertRow } from "dbchain-js-client"
+import { Querier, getIpfsUrl, insertRow } from "dbchain-js-client"
 import { i18n } from "../../plugins/vuetify.js"
 
 export default {
@@ -110,28 +110,24 @@ export default {
     },
 
     async getAvatarUri(addr) {
-      var ids = await getIdsBy(this.appCode, "user", "created_by", addr) || []
-      if (ids.length < 1) {
-        return null
-      }
-      var user = await getRow(this.appCode, "user", ids.pop())
+      var Q = Querier(this.appCode)
+      var user = await Q.user.equal("created_by", addr).select('avatar').first.val()
       if (user == null) {
         return null
       }
-      return "/relay/ipfs/" + user.avatar
+      return getIpfsUrl(user.avatar)
     },
 
     async fetchData() {
       var id = this.$route.params.id;
-      this.post = await getRow(this.appCode, "post", id)
-      this.post.avatarUri = await this.getAvatarUri(this.post.created_by)
-      var ids = await getIdsBy(this.appCode, "comment", "post_id", this.post.id) || []
-      var comments = []
-      for(var i=0; i<ids.length; i++) {
-        var obj = await getRow(this.appCode, "comment", ids[i])
-        obj.avatarUri = await this.getAvatarUri(obj.created_by)
-        comments.push(obj)
-      } 
+      var p = Querier(this.appCode).post.find(id);
+      this.post = await p.first.val();
+      this.post.avatarUri = await this.getAvatarUri(this.post.created_by);
+      var comments = await p.comment.val();
+      for(var i=0; i < comments.length; i++) {
+        var comment = comments[i];
+        comment.avatarUri = await this.getAvatarUri(comment.created_by)
+      }
       this.comments = comments
     },
 
